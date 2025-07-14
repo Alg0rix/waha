@@ -2,11 +2,8 @@
 services:
   waha:
     restart: always
-    # https://waha.devlike.pro/docs/how-to/engines/#docker-images
-    # https://portal.devlike.pro/docker-image
-    image: devlikeapro/waha-plus
-    # WAHA Core
-    # image: devlikeapro/waha:latest
+    build: .
+    image: devlikeapro/waha:local
 
     # Add "dns" if you have a problem with resolving "web.whatsapp.com"
     dns:
@@ -20,7 +17,7 @@ services:
         max-file: '10'
 
     ports:
-      - '127.0.0.1:3000:3000/tcp'
+      - '3000:3000/tcp'
 
     volumes:
       # Store sessions in the .sessions folder (comment it if you're using MongoDB)

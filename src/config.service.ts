@@ -90,6 +90,14 @@ export class WhatsappConfigService implements OnApplicationBootstrap {
     return parseBool(value);
   }
 
+  get shouldRestartOnlyPreviouslyRunning(): boolean {
+    const value: string = this.configService.get(
+      'WHATSAPP_RESTART_ONLY_PREVIOUSLY_RUNNING',
+      'false',
+    );
+    return parseBool(value);
+  }
+
   get proxyServer(): string[] | string | undefined {
     const single = this.configService.get<string>(
       'WHATSAPP_PROXY_SERVER',
